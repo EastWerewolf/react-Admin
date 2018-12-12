@@ -1,0 +1,89 @@
+@import "~antd/dist/antd.css";
+$themeColor:#00ada7;
+$bgWhiteColor:#f1f4f8;
+$menuSelect:rgba(30, 194, 220, 0.3);
+html, body, #root,.App,.switch{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  user-select: none;
+  .ant-layout{
+    height: calc(100%);
+  }
+  .logo{
+    background: rgba(30, 194, 220, 0.7);
+    border: 16px solid $themeColor;
+  }
+  .container{
+    flex:auto;
+    min-height: 0;
+    background-color: #fff;
+  }
+  .ant-layout-content{
+    display:flex;
+    flex-direction: column;
+  }
+  .ant-layout-header{
+    padding: 0;
+    background-color: $themeColor;
+    position: relative;
+  }
+  .ant-layout-sider{
+    background-color: $bgWhiteColor;
+  }
+  .ant-menu-dark{
+    background-color: $themeColor;
+  }
+  .ant-menu-item-selected{
+    background-color: $menuSelect;
+  }
+  .ant-menu-item-selected::after{
+    border-right-color: $themeColor;
+  }
+  .ant-menu-vertical .ant-menu-submenu-selected{
+    color: $themeColor;
+  }
+  .ant-menu-item>a:hover{
+    color: $themeColor;
+  }
+  .ant-menu-item-selected > a, .ant-menu-item-selected > a:hover{
+    color: $themeColor;
+  }
+  .ant-menu-submenu-active:hover,.ant-menu-submenu-title:hover{
+    color: $themeColor;
+  }
+  .ant-menu-submenu-title {
+    &:hover{
+      .ant-menu-submenu-arrow:before,.ant-menu-submenu-arrow:after{
+        background: $themeColor
+      }
+    }
+
+  }
+  .ant-menu-horizontal{
+    position: absolute;
+    left: 50px;
+  }
+  .ant-breadcrumb{
+    flex:0 0 auto;
+  }
+  .ant-dropdown-menu-item{
+    text-align: center;
+  }
+  .admin{
+    width: 120px;
+    display: block;
+    float: right;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+  .admin:hover{
+    background-color: $menuSelect;
+  }
+}
+

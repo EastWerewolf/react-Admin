@@ -1,0 +1,30 @@
+.login{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size:cover;
+  background-image: url('https://activity-pics.themobiyun.com/wx/lr/RL9r/imgs/timg.jpg');
+  .formBox{
+    width: 300px;
+    min-height: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    .ant-form-item{
+      margin-bottom: 10px;
+    }
+    .header{
+      padding-bottom: 15px;
+      font-weight: bolder;
+      font-family:Arial,sans-serif ,Helvetica,"Helvetica Neue";
+      font-size: 20px;
+      text-align: center;
+    }
+    .loginBtn{
+      width: 100%;
+    }
+  }
+}
