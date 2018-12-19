@@ -1,12 +1,15 @@
 import React,{Component} from 'react'
 import { Switch, BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
+import loader from '../config/asyncLoader'
 import App from '../App'
 import Container from '../view/container'
-import LoginForm from '../view/login'
-import NotFount from '../view/notFount'
-import Doc from '../view/doc'
-import Home from '../view/home'
+
+
+const LoginForm = loader(()=>import('../view/login'))
+const NotFount = loader(()=>import('../view/notFount'))
+const Doc = loader(()=>import('../view/doc'))
+const Home =loader(()=> import('../view/home'))
 
 
 class RouterLink extends Component{
@@ -21,6 +24,7 @@ class RouterLink extends Component{
                             <Container {...history} {...location} {...match}>
                                 <Switch>
                                     <Route exact path='/' component={Home}/>
+                                    <Route path='/home' component={Home}/>
                                     <Route path='/doc' component={Doc}/>
                                     <Redirect to='/404'/>
                                 </Switch>

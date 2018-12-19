@@ -36,7 +36,6 @@ class Login extends Component {
         }
     }
     //忘记密码后删除cookie
-    //静态方法指的是没有组件实例也可直接调用
     deleteCookie(){
         const {setFieldsValue} = this.props.form;
         setFieldsValue({userName:null, password:null});
@@ -61,7 +60,7 @@ class Login extends Component {
                             </FormItem>
                             <FormItem>
                                 {getFieldDecorator('password', {rules: [{ required: true, message: '请输入密码' }],})
-                                (<Input prefix={<Icon type="lock"  style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />)}
+                                (<Input prefix={<Icon type="lock"  style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" autoComplete='on' placeholder="密码" />)}
                             </FormItem>
                             <FormItem>
                                 {getFieldDecorator('remember', {valuePropName: 'checked', initialValue: true,})(<Checkbox>记住密码</Checkbox>)}

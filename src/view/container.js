@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import {Link,Redirect } from 'react-router-dom'
 import {Layout, Menu, Breadcrumb, Icon,Dropdown,Avatar} from 'antd';
 import {observer,inject} from 'mobx-react'
 import MenuList from '../component/Menu/menu'

@@ -1,10 +1,10 @@
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
-console.log(process.env.NODE_ENV,'before')
-// process.env.BABEL_ENV = 'production';
-// process.env.NODE_ENV = 'production';
-console.log(process.env.NODE_ENV,'after')
+//BABEL_ENV设置线上环境的打包方式  NODE_ENV打包命令动态设置
+process.env.BABEL_ENV = 'production';
+const PACK_ENV = {test:'测试环境',uat:'UAT环境',production:'生产环境'};
+console.log('当前打包的环境为'+PACK_ENV[process.env.NODE_ENV]);
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
@@ -27,8 +27,7 @@ const printHostingInstructions = require('react-dev-utils/printHostingInstructio
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
 
-const measureFileSizesBeforeBuild =
-  FileSizeReporter.measureFileSizesBeforeBuild;
+const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 const useYarn = fs.existsSync(paths.yarnLockFile);
 

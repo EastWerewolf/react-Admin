@@ -26,7 +26,7 @@ const MenuData = [
               },{
                   id:'4',
                   name:'options4',
-                  linkTo:'/doc'
+                  linkTo:'/home'
               }
           ]
       },

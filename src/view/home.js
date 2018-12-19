@@ -17,7 +17,9 @@ class Home extends Component{
         let num = Math.round(Math.random()*1000);
         this.props.TestA.changeTest('测试'+num)
     };
-    Success(e){
+    //静态方法指的是没有组件实例也可直接调用
+    //但是静态方法不能读取this
+    static Success(e){
         e.stopPropagation()
         Msg.success('This is a message of success');
     };
@@ -25,7 +27,7 @@ class Home extends Component{
         return(
             <div onClick={()=>{this.test()}}>
                 首頁{this.props.TestA.test}
-                <Button type='primary' onClick={(e)=>this.Success(e)}>Success</Button>
+                <Button type='primary' onClick={(e)=>Home.Success(e)}>Success</Button>
             </div>
         )
     }

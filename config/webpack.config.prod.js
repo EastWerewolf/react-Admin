@@ -3,6 +3,10 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
+//进度条 花里胡哨版本
+const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
+//进度条 朴实无华版本
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -24,7 +28,9 @@ const publicPath = paths.servedPath;
 const shouldUseRelativeAssetPaths = publicPath === './';
 //源映射是重量级资源，并且可能导致大的源文件的内存不足问题
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
+// const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = false;
 //“publicUrl”就像“publicPath”，但我们会把它提供给我们的应用程序
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 //就像在JavaScript中的“process.env.PUBLIC_URL”和“index.html”中的%PUBLIC_URL%
@@ -74,7 +80,11 @@ module.exports = {
   devtool: shouldUseSourceMap ? 'source-map' : false,
   //在生产中，我们只需要加载polyfills和应用程序代码
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  // entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry:{
+      app:[require.resolve('./polyfills'), paths.appIndexJs,],
+      vendor: ['react', 'react-dom', 'react-router','react-router-dom', 'mobx', 'mobx-react','antd','axios']
+    },
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -86,10 +96,7 @@ module.exports = {
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
-    devtoolModuleFilenameTemplate: info =>
-      path
-        .relative(paths.appSrc, info.absoluteResourcePath)
-        .replace(/\\/g, '/'),
+    devtoolModuleFilenameTemplate: info => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -259,6 +266,20 @@ module.exports = {
     ],
   },
   plugins: [
+     new NyanProgressPlugin({
+         nyanCatSays(progress, messages){
+            if(progress<1){
+              return (progress*100).toFixed(2)+'%'
+            }else{
+              return  'done,more feature,more bug'
+            }
+         }
+     }),
+     new webpack.optimize.CommonsChunkPlugin({
+        name: ['vendor','runtime'],
+        filename: 'static/js/[name].[hash:8].js',
+        minChunks: Infinity
+      }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

@@ -7,7 +7,7 @@ let instance = axios.create({
     baseURl:urlConfigs.baseURI,
     crossDomain: true
 });
-// 请求拦截器
+//请求拦截器
 instance.interceptors.request.use((config)=>{
     if ((config.method === 'post' || config.method === 'put' || config.method === 'get' || config.method === 'delete')) {
         // 序列化
@@ -31,6 +31,8 @@ instance.interceptors.response.use((response)=>{
         })
     }
 },(error)=>{
+    Msg.error('网络异常，请重试'||error.response.data.message)
+}).catch(error=>{
     Msg.error('网络异常，请重试'||error.response.data.message)
 });
 
