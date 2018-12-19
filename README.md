@@ -4,21 +4,17 @@
 * `npm install -g node-sass --registry=https://registry.npm.taobao.org`
 * `npm install --registry=https://registry.npm.taobao.org`
 
-###运行项目
+##运行项目
 * 开发
+  * `npm install`
   * `npm run start`
-* 测试
-  * `npm run pack_test`
-* UAT
-  * `npm run pack_uat`
-* 生产
-  * `npm run pack_production`
-
-###打包后发布
+#打包后发布
 * 发布到测试服务器
-  * `npm run publish-test`
+  * `npm run pack_test`
+* 发布到UAT服务器
+  * `npm run pack_uat`
 * 发布到生产服务器
-  * `npm run publish-prd`
+  * `npm run pack_production`
 
 ###框架
 * [React16.4.2](https://reactjs.org/)
