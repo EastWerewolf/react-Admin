@@ -1,8 +1,10 @@
 @import "~antd/dist/antd.css";
-$themeColor:#00ada7;
+$themeColor:rgba(0,0,0,0.5);
 $bgWhiteColor:#f1f4f8;
 $menuSelect:rgba(30, 194, 220, 0.3);
-html, body, #root,.App,.switch{
+$afterColor:#209e91;
+$fontColor:#fff;
+html, body, #root,.App{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -11,21 +13,32 @@ html, body, #root,.App,.switch{
   padding: 0;
   font-family: sans-serif;
   user-select: none;
+  background-image: url('https://activity-pics.themobiyun.com/wx/lr/RL9r/imgs/back_react.jpg');
   .ant-layout{
     height: calc(100%);
+    background-color: transparent;
   }
   .logo{
-    background: rgba(30, 194, 220, 0.7);
-    border: 16px solid $themeColor;
+    color: $afterColor;
+    text-align: center;
+    font-size: 24px;
+    cursor:pointer;
+    a{
+      color: $fontColor;
+    }
+    a:hover{
+      color: $afterColor;
+    }
   }
   .container{
     flex:auto;
-    min-height: 0;
-    background-color: #fff;
+    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+    transition: none;
   }
   .ant-layout-content{
     display:flex;
     flex-direction: column;
+    margin-bottom: 16px;
   }
   .ant-layout-header{
     padding: 0;
@@ -33,10 +46,53 @@ html, body, #root,.App,.switch{
     position: relative;
   }
   .ant-layout-sider{
-    background-color: $bgWhiteColor;
+    background-color: transparent;
+
+  }
+  .ant-layout-footer{
+    background-color: transparent;
+    color: $fontColor;
+    height: 16px;
+    padding: 0;
+  }
+  .ant-tabs-bar{
+    border-color: $afterColor;
+  }
+  .ant-tabs-nav-wrap{
+    .ant-tabs-nav-scroll{
+      border-color: $afterColor;
+    }
+    .ant-tabs-tab{
+      border-color: transparent;
+      background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+      transition: none;
+    }
+    .ant-tabs-tab-active{
+      color: $afterColor;
+    }
+    .ant-tabs-nav .ant-tabs-tab:hover{
+      color: $afterColor;
+    }
+  }
+  .ant-tabs-bar{
+    margin-top: 5px;
+    margin-bottom: 5px!important;
   }
   .ant-menu-dark{
     background-color: $themeColor;
+  }
+  .ant-menu-inline,.ant-menu-inline-collapsed{
+    background-color: $themeColor;
+    color: $fontColor;
+    .ant-menu-sub{
+      background-color: transparent;
+      a{
+        color: $fontColor;
+      }
+      a:hover{
+        color: $afterColor;
+      }
+    }
   }
   .ant-menu-item-selected{
     background-color: $menuSelect;
@@ -44,35 +100,55 @@ html, body, #root,.App,.switch{
   .ant-menu-item-selected::after{
     border-right-color: $themeColor;
   }
-  .ant-menu-vertical .ant-menu-submenu-selected{
-    color: $themeColor;
+  .ant-menu-submenu-popup,.ant-menu-submenu > .ant-menu{
+    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+    transition: none;
   }
-  .ant-menu-item>a:hover{
-    color: $themeColor;
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color: $menuSelect;
+  }
+  .ant-dropdown-menu{
+    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+    transition: none;
+  }
+  .ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover{
+    background-color: $menuSelect;
+  }
+  .ant-menu-vertical .ant-menu-submenu-selected{
+    color: $afterColor;
   }
   .ant-menu-item-selected > a, .ant-menu-item-selected > a:hover{
     color: $themeColor;
   }
   .ant-menu-submenu-active:hover,.ant-menu-submenu-title:hover{
-    color: $themeColor;
+    color: $afterColor;
   }
   .ant-menu-submenu-title {
     &:hover{
       .ant-menu-submenu-arrow:before,.ant-menu-submenu-arrow:after{
-        background: $themeColor
+        background: $afterColor
       }
     }
 
   }
   .ant-menu-horizontal{
-    position: absolute;
-    left: 50px;
+    float: left;
   }
   .ant-breadcrumb{
     flex:0 0 auto;
   }
   .ant-dropdown-menu-item{
     text-align: center;
+  }
+  .ant-checkbox-checked .ant-checkbox-inner,.ant-btn-primary{
+    background-color: $afterColor;
+    border-color: $afterColor;
+  }
+  .ant-menu-item:active, .ant-menu-submenu-title:active{
+    background-color: transparent;
+  }
+  a{
+    color: $afterColor;
   }
   .admin{
     width: 120px;

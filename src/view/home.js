@@ -8,10 +8,10 @@ import configs from '../config/configs'
 class Home extends Component{
     componentDidMount(){
         Msg.success('message调用,十分实用的组件');
-        console.log('home',configs,Msg)
+        console.log(configs)
     }
     componentWillMount(){
-        console.log(1232131,this.props)
+
     }
     test(){
         let num = Math.round(Math.random()*1000);

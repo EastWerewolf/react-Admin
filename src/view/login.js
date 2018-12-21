@@ -41,6 +41,10 @@ class Login extends Component {
         setFieldsValue({userName:null, password:null});
         cookie.del('userName').del('password');
     }
+    //注册 静态方法
+    static register(){
+        Msg.error('抱歉,现在还不能注册')
+    }
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
@@ -59,8 +63,11 @@ class Login extends Component {
                                 )}
                             </FormItem>
                             <FormItem>
-                                {getFieldDecorator('password', {rules: [{ required: true, message: '请输入密码' }],})
-                                (<Input prefix={<Icon type="lock"  style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" autoComplete='on' placeholder="密码" />)}
+                                {getFieldDecorator('password', {
+                                    rules: [{ required: true, message: '请输入密码' }],
+                                })(
+                                    <Input prefix={<Icon type="lock"  style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" autoComplete='on' placeholder="密码" />
+                                )}
                             </FormItem>
                             <FormItem>
                                 {getFieldDecorator('remember', {valuePropName: 'checked', initialValue: true,})(<Checkbox>记住密码</Checkbox>)}
@@ -68,7 +75,7 @@ class Login extends Component {
                             <p>
                                 <a className="login-form-forgot" href="javascript:void(0)" onClick={()=>{this.deleteCookie()}}>忘记密码</a>
                                 <span> 或者 </span>
-                                <a href="javascript:void(0)">现在注册</a>
+                                <a href="javascript:void(0)" onClick={Login.register}>现在注册</a>
                             </p>
                             <Button type="primary" htmlType="submit" className="login-form-button loginBtn">登录</Button>
                         </Form>

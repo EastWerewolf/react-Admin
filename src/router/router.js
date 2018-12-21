@@ -9,8 +9,8 @@ import Container from '../view/container'
 const LoginForm = loader(()=>import('../view/login'))
 const NotFount = loader(()=>import('../view/notFount'))
 const Doc = loader(()=>import('../view/doc'))
-const Home =loader(()=> import('../view/home'))
-
+const Home = loader(()=> import('../view/home'))
+const Table = loader(()=>import('../view/table'))
 
 class RouterLink extends Component{
     render(){
@@ -26,6 +26,7 @@ class RouterLink extends Component{
                                     <Route exact path='/' component={Home}/>
                                     <Route path='/home' component={Home}/>
                                     <Route path='/doc' component={Doc}/>
+                                    <Route path='/table' component={Table}/>
                                     <Redirect to='/404'/>
                                 </Switch>
                             </Container>

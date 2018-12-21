@@ -2,161 +2,43 @@ import React, {Component} from 'react'
 import {Menu,Icon,Layout} from 'antd';
 import {Link} from 'react-router-dom'
 import {inject,observer} from 'mobx-react'
+
+import {MenuData} from './menuData'
 const { SubMenu } = Menu;
 const {Sider} = Layout;
-const MenuData = [
-  [
-      {
-          key:'sub1',
-          icon:'user',
-          name:'subNav1',
-          subMenu:[
-              {
-                  id:'1',
-                  name:'options1',
-                  linkTo:'/'
-              },{
-                  id:'2',
-                  name:'options2',
-                  linkTo:'/doc'
-              },{
-                  id:'3',
-                  name:'options3',
-                  linkTo:'/login'
-              },{
-                  id:'4',
-                  name:'options4',
-                  linkTo:'/home'
-              }
-          ]
-      },
-      {
-          key:'sub2',
-          icon:'laptop',
-          name:'subNav2',
-          subMenu:[
-              {
-                  id:'5',
-                  name:'options5',
-                  linkTo:'/404'
-              }
-          ]
-      },
-      {
-          key:'sub3',
-          icon:'notification',
-          name:'subNav3',
-          subMenu:[
-              {
-                  id:'6',
-                  name:'options6',
-                  linkTo:'/'
-              }
-          ]
-      }
-  ],[
-        {
-            key:'sub1',
-            icon:'code',
-            name:'菜单一',
-            subMenu:[
-                {
-                    id:'1',
-                    name:'options1',
-                    linkTo:'/home'
-                },{
-                    id:'2',
-                    name:'options2',
-                    linkTo:'/doc'
-                },{
-                    id:'3',
-                    name:'options3',
-                    linkTo:'/doc'
-                },{
-                    id:'4',
-                    name:'options4',
-                    linkTo:'/doc'
-                }
-            ]
-        },
-        {
-            key:'sub2',
-            icon:'delete',
-            name:'菜单二',
-            subMenu:[
-                {
-                    id:'5',
-                    name:'options5',
-                    linkTo:'/404'
-                }
-            ]
-        },
-        {
-            key:'sub3',
-            icon:'stock',
-            name:'菜单三',
-            subMenu:[
-                {
-                    id:'6',
-                    name:'options6',
-                    linkTo:'/login'
-                }
-            ]
-        }
-    ],[
-        {
-            key:'sub1',
-            icon:'eye',
-            name:'新菜单一',
-            subMenu:[
-                {
-                    id:'1',
-                    name:'options1',
-                    linkTo:'/home'
-                },{
-                    id:'2',
-                    name:'options2',
-                    linkTo:'/doc'
-                },{
-                    id:'3',
-                    name:'options3',
-                    linkTo:'/doc'
-                },{
-                    id:'4',
-                    name:'options4',
-                    linkTo:'/doc'
-                }
-            ]
-        },
-        {
-            key:'sub2',
-            icon:'message',
-            name:'新菜单二',
-            subMenu:[
-                {
-                    id:'5',
-                    name:'options5',
-                    linkTo:'/404'
-                }
-            ]
-        },
-        {
-            key:'sub3',
-            icon:'qrcode',
-            name:'新菜单三',
-            subMenu:[
-                {
-                    id:'6',
-                    name:'options6',
-                    linkTo:'/login'
-                }
-            ]
-        }
-    ]
-];
+
 @inject('TestA')
 @observer
 class MenuList extends Component{
+    constructor(){
+        super();
+        this.state = {
+            SelectedKeys:[],
+            OpenKeys:[],
+        }
+    }
+    componentWillMount(){
+        const path = this.props.location.pathname;
+        let  OpenKeys = null,SelectedKeys = null;
+        for(let i = 0;i <MenuData.length;i++){
+            for(let j = 0;j<MenuData[i].length;j++){
+                MenuData[i][j].subMenu.forEach((item)=>{
+                    if(item.linkTo===path){
+                        OpenKeys = [MenuData[i][j].key];
+                        SelectedKeys = [item.id];
+                        console.log(OpenKeys, SelectedKeys);
+                        this.setState({OpenKeys, SelectedKeys},()=>{
+                            console.log(path,'menu',this.props.TestA.MenuIndex,this.state)
+                        });
+                        this.props.TestA.changeIndex(i)
+                    }
+                });
+            }
+        }
+    }
+    componentWillReceiveProps(){
+
+    }
     render(){
         return(
             <Sider
@@ -165,12 +47,11 @@ class MenuList extends Component{
                 trigger={null}
                 collapsed={this.props.TestA.collapsed}
             >
-                <div className='logo' style={{height:'64px'}}/>
                 <Menu
                     mode="inline"
                     theme="light"
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
+                    defaultSelectedKeys={this.state.SelectedKeys}
+                    defaultOpenKeys={this.state.OpenKeys}
                     style={{ height: '100%', borderRight: 0 }}
                 >
                     {MenuData[this.props.TestA.MenuIndex].map(i=>{

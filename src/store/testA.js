@@ -4,6 +4,10 @@ class TestA {
     @observable test = '测试a';
     @observable MenuIndex = 0;
     @observable collapsed = false;
+    @observable path = null;
+    @action changePath(newValue){
+        this.path = newValue
+    }
     @action isCollapse(boolean){
         this.collapsed = !boolean
     }

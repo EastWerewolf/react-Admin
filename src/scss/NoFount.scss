@@ -1,12 +1,25 @@
 .NotFount{
   width:100%;
   height:100%;
-  background:#f1f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .center{
-    width:50%;
-    margin:100px auto 0;
-    img{
-      width:100%;
+    width:60%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,.5);
+    h1{
+      color: white;
+      line-height: 100px;
+      margin-bottom: 0;
+    }
+    p{
+      font-size: 16px;
+      height: 50px;
+    }
+    a{
+      color: #209e91;
     }
   }
 }
