@@ -3,10 +3,12 @@ import React from 'react'
 import urlConfigs from './configs'
 import {message as Msg} from 'antd'
 import { Redirect } from 'react-router-dom';
+//axios全局配置
 let instance = axios.create({
-    baseURl:urlConfigs.baseURI,
+    baseURL:urlConfigs.baseURI,
     crossDomain: true
 });
+console.log(urlConfigs.baseURI)
 //请求拦截器
 instance.interceptors.request.use((config)=>{
     if ((config.method === 'post' || config.method === 'put' || config.method === 'get' || config.method === 'delete')) {
@@ -32,16 +34,17 @@ instance.interceptors.response.use((response)=>{
     }
 },(error)=>{
     Msg.error('网络异常，请重试'||error.response.data.message)
-}).catch(error=>{
-    Msg.error('网络异常，请重试'||error.response.data.message)
+    console.log(error,'请求失败')
 });
 
 const get = (url,params)=>{
     return new Promise((resolve, reject) => {
         instance.get(url, {params}).then(res => {
             resolve(res.data)
-        }).catch(res => {
+        },res=>{
             reject(res)
+        }).catch(err=>{
+            console.log(err)
         })
     })
 };
@@ -49,8 +52,10 @@ const post = (url,params)=>{
     return new Promise((resolve, reject) => {
         instance.post(url, params).then(res => {
             resolve(res.data)
-        }).catch(res => {
+        },res=>{
             reject(res)
+        }).catch(err=>{
+            console.log(err)
         })
     })
 };
@@ -58,8 +63,10 @@ const put = (url,params)=>{
     return new Promise((resolve, reject) => {
         instance.put(url, params).then(res => {
             resolve(res.data)
-        }).catch(res => {
+        },res=>{
             reject(res)
+        }).catch(err=>{
+            console.log(err)
         })
     })
 };
@@ -67,8 +74,10 @@ const del = (url)=>{
     return new Promise((resolve, reject) => {
         instance.delete(url).then(res => {
             resolve(res.data)
-        }).catch(res => {
+        },res=>{
             reject(res)
+        }).catch(err=>{
+            console.log(err)
         })
     })
 };

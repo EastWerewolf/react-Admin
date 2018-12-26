@@ -55,7 +55,7 @@ class Container extends Component{
                     <div className='logo' style={{height:'64px',width:'200px',float:'left'}}>
                         DMS <Link to='/'>Admin</Link>
                     </div>
-                    <div style={{float:'left',width:'50px',textAlign:'center'}}>
+                    <div className='switch' style={{float:'left',width:'50px',textAlign:'center'}}>
                         <Icon
                             className="trigger"
                             style={{color:'#fff',fontSize:'20px'}}

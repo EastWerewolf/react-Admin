@@ -4,6 +4,15 @@ $bgWhiteColor:#f1f4f8;
 $menuSelect:rgba(30, 194, 220, 0.3);
 $afterColor:#209e91;
 $fontColor:#fff;
+$lineColor:rgba(0,0,0,.12);
+@mixin FakeTransparent{
+  background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+  transition: none;
+}
+@mixin TransparentLine{
+  border-color: $lineColor;
+  box-shadow: 0 1px 0 0 rgba(255,255,255,.12)
+}
 html, body, #root,.App{
   width: 100%;
   height: 100%;
@@ -30,10 +39,22 @@ html, body, #root,.App{
       color: $afterColor;
     }
   }
+  .switch{
+    border-color: $lineColor;
+    box-shadow: 0 0 5px 0 rgba(255,255,255,.12);
+    border-left: 1px solid;
+  }
+  //主体内容
   .container{
-    flex:auto;
-    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
-    transition: none;
+    flex:1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .ant-tabs{
+    flex: 0 0 48px;
+    max-height: 48px;
+    min-height: 48px;
+    height: 48px;
   }
   .ant-layout-content{
     display:flex;
@@ -54,29 +75,6 @@ html, body, #root,.App{
     color: $fontColor;
     height: 16px;
     padding: 0;
-  }
-  .ant-tabs-bar{
-    border-color: $afterColor;
-  }
-  .ant-tabs-nav-wrap{
-    .ant-tabs-nav-scroll{
-      border-color: $afterColor;
-    }
-    .ant-tabs-tab{
-      border-color: transparent;
-      background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
-      transition: none;
-    }
-    .ant-tabs-tab-active{
-      color: $afterColor;
-    }
-    .ant-tabs-nav .ant-tabs-tab:hover{
-      color: $afterColor;
-    }
-  }
-  .ant-tabs-bar{
-    margin-top: 5px;
-    margin-bottom: 5px!important;
   }
   .ant-menu-dark{
     background-color: $themeColor;
@@ -101,15 +99,13 @@ html, body, #root,.App{
     border-right-color: $themeColor;
   }
   .ant-menu-submenu-popup,.ant-menu-submenu > .ant-menu{
-    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
-    transition: none;
+    @include FakeTransparent;
   }
   .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
     background-color: $menuSelect;
   }
   .ant-dropdown-menu{
-    background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
-    transition: none;
+    @include FakeTransparent;
   }
   .ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover{
     background-color: $menuSelect;
@@ -147,8 +143,71 @@ html, body, #root,.App{
   .ant-menu-item:active, .ant-menu-submenu-title:active{
     background-color: transparent;
   }
+  //tabs
+  .ant-tabs-bar{
+    @include TransparentLine;
+    margin-top: 5px;
+    margin-bottom: 5px!important;
+    .ant-tabs-nav-wrap{
+      .ant-tabs-tab{
+        border-color: transparent;
+        @include FakeTransparent;
+      }
+      .ant-tabs-tab-active{
+        color: $afterColor;
+      }
+      .ant-tabs-nav .ant-tabs-tab:hover{
+        color: $afterColor;
+      }
+    }
+  }
+  //表格
+  .ant-table-wrapper{
+    .ant-table{
+      color: $fontColor;
+      @include FakeTransparent;
+      .ant-table-thead > tr > th{
+        @include FakeTransparent;
+      }
+      .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td{
+        background-color: $menuSelect;
+      }
+    }
+  }
+  //a标签
   a{
+    text-decoration: none;
     color: $afterColor;
+  }
+  //分页按钮
+  .ant-pagination-item-link,.ant-pagination-item{
+    @include FakeTransparent
+  }
+  //卡片
+  .ant-card{
+    @include FakeTransparent;
+    .ant-card-head{
+      @include TransparentLine;
+    }
+  }
+  //grid
+  .dashboard>div{
+    margin: 10px 0;
+  }
+  //scrollbar
+  ::-webkit-scrollbar {
+    width: .5em;
+    height: .5em;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $themeColor;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
   }
   .admin{
     width: 120px;

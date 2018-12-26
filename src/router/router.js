@@ -11,6 +11,7 @@ const NotFount = loader(()=>import('../view/notFount'))
 const Doc = loader(()=>import('../view/doc'))
 const Home = loader(()=> import('../view/home'))
 const Table = loader(()=>import('../view/table'))
+const DashBoard = loader(()=>import('../view/dashboard'))
 
 class RouterLink extends Component{
     render(){
@@ -23,7 +24,7 @@ class RouterLink extends Component{
                         <Route path='/' render={(history,location,match)=>(
                             <Container {...history} {...location} {...match}>
                                 <Switch>
-                                    <Route exact path='/' component={Home}/>
+                                    <Route exact path='/' component={DashBoard}/>
                                     <Route path='/home' component={Home}/>
                                     <Route path='/doc' component={Doc}/>
                                     <Route path='/table' component={Table}/>
