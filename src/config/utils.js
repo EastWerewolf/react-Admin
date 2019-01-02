@@ -1,5 +1,5 @@
 /**
- * 工具类函数
+ * 工具类函数 Cookie的操作
  * @type {{set: cookie.set, get: function(*): any, delete: cookie.delete}}
  */
 
@@ -28,8 +28,8 @@ const cookie={
 
 /**
  * 对象深度复制
- * @param obj
- * @param uniqueType
+ * @param obj{object}
+ * @param uniqueType{boolean}?
  * @returns {*}
  */
 function deepCopy(obj,uniqueType){
