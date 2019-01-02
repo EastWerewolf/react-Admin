@@ -8,7 +8,7 @@ import configs from '../config/configs'
 class Home extends Component{
     componentDidMount(){
         Msg.success('message调用,十分实用的组件');
-        console.log(configs)
+        console.log(configs,'通过这里可以确定当前的环境')
     }
     componentWillMount(){
 

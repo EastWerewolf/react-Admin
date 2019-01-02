@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
@@ -215,6 +216,15 @@ module.exports = {
     ],
   },
   plugins: [
+      new NyanProgressPlugin({
+          nyanCatSays(progress, messages){
+              if(progress<1){
+                  return (progress*100).toFixed(2)+'%'
+              }else{
+                  return  'done,show time!!!'
+              }
+          }
+      }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

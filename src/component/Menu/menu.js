@@ -26,10 +26,7 @@ class MenuList extends Component{
                     if(item.linkTo===path){
                         OpenKeys = [MenuData[i][j].key];
                         SelectedKeys = [item.id];
-                        console.log(OpenKeys, SelectedKeys);
-                        this.setState({OpenKeys, SelectedKeys},()=>{
-                            console.log(path,'menu',this.props.TestA.MenuIndex,this.state)
-                        });
+                        this.setState({OpenKeys, SelectedKeys});
                         this.props.TestA.changeIndex(i)
                     }
                 });

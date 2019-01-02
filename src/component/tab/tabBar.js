@@ -25,7 +25,7 @@ class TabBar extends Component {
         };
     }
     componentWillMount(){
-        console.log(this.props)
+
     }
     componentWillReceiveProps(){
         const receivePath = this.props.TestA.path;

@@ -12,7 +12,6 @@ class Login extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 if (values.userName === 'admin' && values.password === '123456') {
-                    console.log(values)
                     sessionStorage.setItem('login', 'Admin');
                     values.remember && cookie.set('userName', values.userName, 2).set('password', values.password, 2);
                     this.props.history.push('/')

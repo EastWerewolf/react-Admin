@@ -1,8 +1,7 @@
 import axios from 'axios'
-import React from 'react'
 import urlConfigs from './configs'
 import {message as Msg} from 'antd'
-import { Redirect } from 'react-router-dom';
+
 //axios全局配置
 let instance = axios.create({
     baseURL:urlConfigs.baseURI,
@@ -21,7 +20,7 @@ instance.interceptors.request.use((config)=>{
 instance.interceptors.response.use((response)=>{
     let {code,data,message} = response.data;
     if(code===416||code===417){
-        return <Redirect to='/login'/>
+        let href = window.location.href
     }else if(code===200){
         return Promise.resolve(response.data)
     }else{

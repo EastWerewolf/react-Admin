@@ -27,7 +27,6 @@ class Container extends Component{
     }
     componentDidMount(){
         let SelectedKeys = [String(this.props.TestA.MenuIndex+1)];
-        console.log(SelectedKeys,'key')
         this.setState({SelectedKeys})
     }
     //这里可以接收到路由的变化 全局路由拦截可以在这里写
