@@ -27,7 +27,7 @@ function axios(type){
         if(!type){
             target.prototype.axios = axios
         }else{
-            target.prototype[type] = axios[type]
+            target.prototype[type] = axios[type]?axios[type]:error(type)
         }
     }
 }
@@ -35,18 +35,26 @@ function axios(type){
 /**
  * 同样的方式注入工具类函数
  * 用法:@utils(type)
- * @param type
+ * @param methodName{string}
  * @returns {Function}
  */
-function utils(type){
+function utils(methodName){
     return function (target) {
         const utils = {cookie,deepCopy}
-        if(!type){
+        if(!methodName){
             target.prototype.utils = utils
         }else{
-            target.prototype[type] = utils[type]
+            target.prototype[methodName] = utils[methodName]?utils[methodName]:error(methodName)
         }
     }
+}
+
+/**
+ * 错误处理
+ * @param errorName
+ */
+function error(errorName){
+    throw new Error(`${errorName} is not a function,please check again`)
 }
 /**
  * 日志输出

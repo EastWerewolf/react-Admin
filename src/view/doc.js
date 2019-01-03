@@ -1,7 +1,9 @@
 import React,{Component}from 'react'
-import {ComponentPlus,axios,log} from '../config/componentPlus'
+import {ComponentPlus,axios,log,utils} from '../config/componentPlus'
+import {deepCopy} from "../config/utils";
 
 @axios('get')
+@utils('deepCopy')
 class Doc extends Component{
     constructor(){
         super()
@@ -14,7 +16,7 @@ class Doc extends Component{
         this.get('/eded',{param:111}).then((res)=>{
             console.log(res)
         })
-        console.log( window.location.href.split(':'))
+        console.log( this.deepCopy)
     }
     render(){
         return(
