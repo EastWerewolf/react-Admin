@@ -5,9 +5,6 @@ import {deepCopy} from "../config/utils";
 @axios('get')
 @utils('deepCopy')
 class Doc extends Component{
-    constructor(){
-        super()
-    }
     @log
     add(){
        return 6

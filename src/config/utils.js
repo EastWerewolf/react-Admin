@@ -44,7 +44,7 @@ function deepCopy(obj,uniqueType){
             if(obj[prop].constructor === RegExp ||obj[prop].constructor === Date){
                 newObj[prop] = obj[prop];
             } else if(typeof obj[prop] === 'object'){
-                newObj[prop] = deepCopy(obj[prop]);//递归
+                newObj[prop] = deepCopy(obj[prop],true);//递归
             } else {
                 newObj[prop] = obj[prop];
             }
