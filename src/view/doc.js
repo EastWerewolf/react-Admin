@@ -1,6 +1,5 @@
 import React,{Component}from 'react'
-import {ComponentPlus,axios,log,utils} from '../config/componentPlus'
-import {deepCopy} from "../config/utils";
+import {axios,log,utils} from '../config/componentPlus'
 
 @axios('get')
 @utils('deepCopy')
@@ -13,7 +12,7 @@ class Doc extends Component{
         this.get('/eded',{param:111}).then((res)=>{
             console.log(res)
         })
-        console.log( this.deepCopy)
+        console.log(this.deepCopy)
     }
     render(){
         return(

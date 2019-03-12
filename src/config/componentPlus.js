@@ -1,6 +1,7 @@
 import {Component} from'react'
-import {get,post,put,del} from './axios'
-import {cookie,deepCopy} from './utils'
+import * as request from './axios'
+import * as util from './utils'
+
 /**
  * 扩展React Component
  * 将公共方法挂载在构造函数里
@@ -10,8 +11,8 @@ import {cookie,deepCopy} from './utils'
 class ComponentPlus extends Component{
     constructor(){
         super()
-        this.axios={get,post,put,del};
-        this.utils = {cookie,deepCopy};
+        this.axios = request;
+        this.utils = utils;
     }
 }
 
@@ -23,11 +24,10 @@ class ComponentPlus extends Component{
  */
 function axios(type){
     return function(target){
-        const axios = {get,post,put,del};
         if(!type){
-            target.prototype.axios = axios
+            target.prototype.axios = request
         }else{
-            target.prototype[type] = axios[type]?axios[type]:error(type)
+            target.prototype[type] = request[type]?request[type]:error(type)
         }
     }
 }
@@ -39,12 +39,11 @@ function axios(type){
  * @returns {Function}
  */
 function utils(methodName){
-    return function (target) {
-        const utils = {cookie,deepCopy}
+    return function (target) { 
         if(!methodName){
-            target.prototype.utils = utils
+            target.prototype.utils = util
         }else{
-            target.prototype[methodName] = utils[methodName]?utils[methodName]:error(methodName)
+            target.prototype[methodName] = util[methodName]?util[methodName]:error(methodName)
         }
     }
 }
