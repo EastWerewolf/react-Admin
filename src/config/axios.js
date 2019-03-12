@@ -20,7 +20,8 @@ instance.interceptors.request.use((config)=>{
 instance.interceptors.response.use((response)=>{
     let {code,data,message} = response.data;
     if(code===416||code===417){
-        let href = window.location.href
+        let href = window.location.href;
+        console.log(href)
     }else if(code===200){
         return Promise.resolve(response.data)
     }else{

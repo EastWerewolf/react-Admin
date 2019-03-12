@@ -22,14 +22,14 @@ class MenuList extends Component{
         let  OpenKeys = null,SelectedKeys = null;
         for(let i = 0;i <MenuData.length;i++){
             for(let j = 0;j<MenuData[i].length;j++){
-                MenuData[i][j].subMenu.forEach((item)=>{
-                    if(item.linkTo===path){
+                for(let k = 0;k<MenuData[i][j].subMenu.length;k++){
+                    if(MenuData[i][j].subMenu[k].linkTo===path){
                         OpenKeys = [MenuData[i][j].key];
-                        SelectedKeys = [item.id];
+                        SelectedKeys = [MenuData[i][j].subMenu[k].id];
                         this.setState({OpenKeys, SelectedKeys});
                         this.props.TestA.changeIndex(i)
                     }
-                });
+                }
             }
         }
     }

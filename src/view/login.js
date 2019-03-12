@@ -72,9 +72,9 @@ class Login extends Component {
                                 {getFieldDecorator('remember', {valuePropName: 'checked', initialValue: true,})(<Checkbox>记住密码</Checkbox>)}
                             </FormItem>
                             <p>
-                                <a className="login-form-forgot" href="javascript:void(0)" onClick={()=>{this.deleteCookie()}}>忘记密码</a>
+                                <a className="login-form-forgot"  onClick={()=>{this.deleteCookie()}}>忘记密码</a>
                                 <span> 或者 </span>
-                                <a href="javascript:void(0)" onClick={Login.register}>现在注册</a>
+                                <a  onClick={Login.register}>现在注册</a>
                             </p>
                             <Button type="primary" htmlType="submit" className="login-form-button loginBtn">登录</Button>
                         </Form>

@@ -41,10 +41,10 @@ class Container extends Component{
         const menu = (
             <Menu onClick={(path)=>this.checkOut(path)}>
                 <Menu.Item key='/selfInfo'>
-                    <a href='javascript:void(0)'>个人中心</a>
+                    <a>个人中心</a>
                 </Menu.Item>
                 <Menu.Item key='/login'>
-                    <a href='javascript:void(0)'>退出登录</a>
+                    <a>退出登录</a>
                 </Menu.Item>
             </Menu>
         );
@@ -75,7 +75,7 @@ class Container extends Component{
                         <Menu.Item key="3">nav 3</Menu.Item>
                     </Menu>
                     <Dropdown overlay={menu}>
-                        <a className="ant-dropdown-link admin" href="javascript:void(0)">
+                        <a className="ant-dropdown-link admin">
                             <Avatar size='large' style={{ backgroundColor: 'transparent' }} icon='chrome' />
                             <span style={{position:'relative',top:'2px'}}>Admin</span>
                         </a>

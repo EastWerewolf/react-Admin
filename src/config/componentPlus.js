@@ -1,4 +1,4 @@
-import {Component} from'react'
+import {Component} from 'react'
 import * as request from './axios'
 import * as util from './utils'
 

@@ -17,5 +17,8 @@ class TestA {
     @action changeTest(newValue){
         this.test = newValue
     }
+    @computed get value(){
+        return true
+    }
 }
 export default TestA
