@@ -1,7 +1,9 @@
-import API from '../config/configs'
+import API from '../Config/configs'
 const Mock = require('mockjs');
+const URL = API.baseURL;
+
 //模拟数据测试
-Mock.mock(API.baseURL +'/test','get',{
+Mock.mock(URL +'/test','get',{
     msg:'成功',
     code:200,
     data:{

@@ -4,10 +4,10 @@ import {message as Msg} from 'antd'
 
 //axios全局配置
 let instance = axios.create({
-    baseURL:urlConfigs.baseURI,
+    baseURL:urlConfigs.baseURL,
     crossDomain: true
 });
-console.log(urlConfigs.baseURI)
+console.log(urlConfigs.baseURL)
 //请求拦截器
 instance.interceptors.request.use((config)=>{
     if ((config.method === 'post' || config.method === 'put' || config.method === 'get' || config.method === 'delete')) {

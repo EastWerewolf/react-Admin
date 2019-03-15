@@ -5,7 +5,7 @@ import {Provider} from 'mobx-react'
 import Store from './Store/store'
 import registerServiceWorker from './registerServiceWorker';
 //Mock数据  全局注入
-if(process.env.NODE_ENV!=='production')import('./mock/data.js');
+if(process.env.NODE_ENV!=='production')import('./Mock/data.js');
 
 ReactDOM.render(
     <Provider {...Store}>
