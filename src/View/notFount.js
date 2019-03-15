@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
-import '../scss/NoFount.scss'
+import '../Scss/NoFount.scss'
 class NotFount extends Component{
     render(){
         return(

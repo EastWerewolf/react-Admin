@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {Form, Icon, Input, Button, Checkbox} from 'antd';
-import {cookie} from '../config/utils'
-import '../scss/login.scss'
+import {cookie} from '../Config/utils'
+import '../Scss/login.scss'
 import {message as Msg} from "antd/lib/index";
 const FormItem = Form.Item;
 

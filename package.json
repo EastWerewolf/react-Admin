@@ -99,6 +99,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.10.0",
     "nyan-progress-webpack-plugin": "^1.2.0",
     "postcss-flexbugs-fixes": "3.2.0",

@@ -1,17 +1,17 @@
 import React,{Component} from 'react'
 import { Switch, BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
-import loader from '../config/asyncLoader'
+import loader from '../Config/asyncLoader'
 import App from '../App'
-import Container from '../view/container'
+import Container from '../View/container'
 
 
-const LoginForm = loader(()=>import('../view/login'))
-const NotFount = loader(()=>import('../view/notFount'))
-const Doc = loader(()=>import('../view/doc'))
-const Home = loader(()=> import('../view/home'))
-const Table = loader(()=>import('../view/table'))
-const DashBoard = loader(()=>import('../view/dashboard'))
+const LoginForm = loader(()=>import('../View/login'))
+const NotFount = loader(()=>import('../View/notFount'))
+const Doc = loader(()=>import('../View/doc'))
+const Home = loader(()=> import('../View/home'))
+const Table = loader(()=>import('../View/table'))
+const DashBoard = loader(()=>import('../View/dashboard'))
 
 class RouterLink extends Component{
     render(){

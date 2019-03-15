@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {message as Msg,Button } from 'antd'
 import {inject,observer} from 'mobx-react'
-import configs from '../config/configs'
+import configs from '../Config/configs'
 
 @inject('TestA')
 @observer
