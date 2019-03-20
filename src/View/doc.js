@@ -2,6 +2,7 @@ import React,{Component}from 'react'
 import {axios,log,utils} from '../Config/componentPlus'
 
 @axios('get')
+@axios('post')
 @utils('deepCopy')
 class Doc extends Component{
 
@@ -9,6 +10,11 @@ class Doc extends Component{
         this.get('/test').then((res)=>{
             console.log(res)
         });
+        this.post('/param').then(res=>{
+            console.log(res)
+        },err=>{
+            console.log(err)
+        })
         console.log(this.deepCopy)
     }
     @log

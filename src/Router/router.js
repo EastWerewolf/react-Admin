@@ -11,7 +11,7 @@ const NotFount = loader(()=>import('../View/notFount'))
 const Doc = loader(()=>import('../View/doc'))
 const Home = loader(()=> import('../View/home'))
 const Table = loader(()=>import('../View/table'))
-const DashBoard = loader(()=>import('../View/dashboard'))
+const DashBoard = loader(()=>import('../View/Dashboard/Analysis'))
 
 class RouterLink extends Component{
     render(){

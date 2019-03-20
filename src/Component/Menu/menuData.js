@@ -2,20 +2,20 @@ export const MenuData = [
     [
         {
             key:'sub1',
-            icon:'user',
-            name:'subNav1',
+            icon:'dashboard',
+            name:'Dashboard',
             subMenu:[
                 {
                     id:'1',
-                    name:'options1',
+                    name:'分析页',
                     linkTo:'/'
                 },{
                     id:'2',
-                    name:'options2',
+                    name:'控制台',
                     linkTo:'/table'
                 },{
                     id:'3',
-                    name:'options3',
+                    name:'工作台',
                     linkTo:'/doc'
                 },{
                     id:'4',

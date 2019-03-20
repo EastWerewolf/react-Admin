@@ -22,12 +22,15 @@ class ComponentPlus extends Component{
  * @param type{string}
  * @returns {Function}
  */
-function axios(type){
+function axios(...type){
     return function(target){
         if(!type){
             target.prototype.axios = request
         }else{
-            target.prototype[type] = request[type]?request[type]:error(type)
+            type.forEach(i=>{
+                target.prototype[i] = request[i]?request[i]:error(i)
+            })
+
         }
     }
 }
@@ -38,12 +41,14 @@ function axios(type){
  * @param methodName{string}
  * @returns {Function}
  */
-function utils(methodName){
-    return function (target) { 
+function utils(...methodName){
+    return function (target) {
         if(!methodName){
             target.prototype.utils = util
         }else{
-            target.prototype[methodName] = util[methodName]?util[methodName]:error(methodName)
+            methodName.forEach(i=>{
+                target.prototype[i] = util[i]?util[i]:error(i)
+            })
         }
     }
 }
