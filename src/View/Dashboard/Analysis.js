@@ -2,8 +2,8 @@ import React,{Component} from'react';
 import { Card, Col, Row,Calendar,Carousel,Tooltip,Icon,Button} from 'antd';
 import {Map,Marker} from 'react-amap'
 import {Crosshair,
-    RadarChart,
-    CircularGridLines,
+    MarkSeriesCanvas,
+    Hint,
     AreaSeries,
     FlexibleWidthXYPlot,
     MarkSeries,
@@ -65,33 +65,16 @@ function updateData() {
         children: leaves
     };
 }
-const Star = [
-    {
-        explosions: 7,
-        wow: 10,
-        dog: 8,
-        sickMoves: 9,
-        nice: 7
-    }
-];
-
-const DOMAIN = [
-    {name: 'nice', domain: [0, 100], tickFormat: t => t},
-    {name: 'explosions', domain: [6.9, 7.1]},
-    {name: 'wow', domain: [0, 11]},
-    {name: 'dog', domain: [0, 16]},
-    {name: 'sickMoves', domain: [0, 20]}
-];
-
-function generateData() {
-    return [
-        Object.keys(Star[0]).reduce((acc, key) => {
-            acc[key] = Star[0][key] + 5 * (Math.random() - 0.5);
-            return acc;
-        }, {})
-    ];
+function getRandomData() {
+    return new Array(30).fill(0).map(row => ({
+        x:Math.ceil(Math.random() * 10) ,
+        y:Math.ceil(Math.random() * 20) ,
+        size:Math.ceil(Math.random() * 10) ,
+        color:Math.ceil(Math.random() * 10) ,
+        opacity:(Math.random() * 0.5 + 0.5).toFixed(2)
+    }));
 }
-
+const randomData = getRandomData();
 let timer=null;
 @axios('get','post')
 class DashBoard extends Component{
@@ -111,7 +94,7 @@ class DashBoard extends Component{
             DIVERGING_COLOR_SCALE:[],
             channel:[],
             saleLine:[],//1
-            star:Star,//2
+            point:randomData,//2
             payList:[],//3
             sale:0,
             visit:0,
@@ -143,8 +126,7 @@ class DashBoard extends Component{
         }
         //sale data
         function randomLine(){
-            const length = Math.floor(Math.random()*15+8);
-            const arr = [];
+            const length =Math.ceil( Math.random()*15+8),arr = [];
             for(let i = 0;i < length;i++){
                 arr.push({x:i,y:Math.floor(Math.random()*15+2)})
             }
@@ -165,10 +147,11 @@ class DashBoard extends Component{
         //做动画场景
         timer = setInterval(()=>{
             this.setState({
-                position:randomPosition(),
-                saleLine:upForward(this.state.saleLine),
-                data: updateData(),
-                payList:randomLine()
+                position:randomPosition(),//地图
+                data: updateData(),//销售渠道
+                saleLine:upForward(this.state.saleLine),//1
+                point:getRandomData(),//2
+                payList:randomLine()//3
             });
         },2000);
     }
@@ -178,7 +161,16 @@ class DashBoard extends Component{
     }
 
     render(){
-        const {channel,hoveredNode, showVoronoi,data,DIVERGING_COLOR_SCALE,saleLine,payList,star} = this.state;
+        const {channel,hoveredNode, showVoronoi,data,DIVERGING_COLOR_SCALE,saleLine,payList,point} = this.state;
+        const markSeriesProps = {
+            className: 'mark-series-example',
+            sizeRange: [1, 15],
+            seriesId: 'my-example-scatterplot',
+            colorRange: ['#59E4EC', '#0D676C'],
+            opacityType: 'literal',
+            data:point,
+            animation:{damping: 100, stiffness: 300}
+        };
         return(
             <div className='dashboard'>
                 <Row gutter={16}>
@@ -207,36 +199,24 @@ class DashBoard extends Component{
                     </SaleCard>
                     <SaleCard title="访问量" tip="指标说明" data={'日访问量  '+this.state.visit}>
                         <h4 className='xq-h4'>8,848</h4>
-                        <RadarChart
-                            animation
-                            data={star}
-                            domains={DOMAIN}
-                            style={{
-                                polygons: {
-                                    fillOpacity: 0,
-                                    strokeWidth: 3
-                                },
-                                axes: {
-                                    text: {
-                                        opacity: 1
-                                    }
-                                },
-                                labels: {
-                                    textAnchor: 'middle'
-                                }
-                            }}
-                            margin={{
-                                left: 30,
-                                top: 30,
-                                bottom: 40,
-                                right: 50
-                            }}
-                            tickFormat={t => ''}
-                            width={400}
+                        <FlexibleWidthXYPlot
                             height={300}
                         >
-                            <CircularGridLines tickValues={[...new Array(10)].map((v, i) => i / 10 - 1)}/>
-                        </RadarChart>
+                            <VerticalGridLines />
+                            <HorizontalGridLines />
+                            <XAxis style={{
+                                line: {stroke: '#ADDDE1'},
+                                ticks: {stroke: '#ADDDE1'},
+                                text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                            }}/>
+                            <YAxis style={{
+                                line: {stroke: '#ADDDE1'},
+                                ticks: {stroke: '#ADDDE1'},
+                                text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                            }}/>
+                            <MarkSeries {...markSeriesProps} />
+
+                        </FlexibleWidthXYPlot>
                     </SaleCard>
                     <SaleCard title="支付笔数" tip="指标说明" data={'转化率  '+this.state.pay*100+ '%'}>
                         <h4 className='xq-h4'>6,560</h4>
