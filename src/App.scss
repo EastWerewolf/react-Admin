@@ -6,7 +6,7 @@ $afterColor:#209e91;
 $fontColor:#fff;
 $lineColor:rgba(0,0,0,.12);
 @mixin FakeTransparent{
-  background: url("https://activity-pics.themobiyun.com/bg_react_blur.jpg") fixed;
+  background: url("./Assets/img/bg_react_blur.jpg") fixed;
   transition: none;
 }
 @mixin TransparentLine{
@@ -22,7 +22,7 @@ html, body, #root,.App{
   padding: 0;
   font-family: sans-serif;
   user-select: none;
-  background-image: url('https://activity-pics.themobiyun.com/wx/lr/RL9r/imgs/back_react.jpg');
+  background-image: url('./Assets/img/back_react.jpg');
   .ant-layout{
     height: calc(100%);
     background-color: transparent;

@@ -3,8 +3,8 @@ import {Layout, Menu, Icon,Dropdown,Avatar} from 'antd';
 import {observer,inject} from 'mobx-react'
 import {Link} from 'react-router-dom'
 
-import TabBar from '../Component/tab/tabBar'
-import MenuList from '../Component/Menu/menu'
+import TabBar from '../Tab/tabBar'
+import MenuList from '../Menu/menu'
 const { Header, Content,Footer } = Layout;
 
 @inject('TestA')

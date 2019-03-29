@@ -3,7 +3,7 @@ import { Switch, BrowserRouter as Router, Route, Redirect} from 'react-router-do
 
 import loader from '../Config/asyncLoader'
 import App from '../App'
-import Container from '../View/container'
+import Container from '../Component/Container/container'
 
 
 const LoginForm = loader(()=>import('../View/login'))
