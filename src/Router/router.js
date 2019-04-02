@@ -6,12 +6,14 @@ import App from '../App'
 import Container from '../Component/Container/container'
 
 
-const LoginForm = loader(()=>import('../View/login'))
-const NotFount = loader(()=>import('../View/notFount'))
-const Doc = loader(()=>import('../View/doc'))
-const Home = loader(()=> import('../View/home'))
-const Table = loader(()=>import('../View/table'))
-const DashBoard = loader(()=>import('../View/Dashboard/analysis'))
+const LoginForm = loader(()=>import('../View/login'));
+const Doc = loader(()=>import('../View/doc'));
+const Home = loader(()=> import('../View/home'));
+const Table = loader(()=>import('../View/table'));
+const DashBoard = loader(()=>import('../View/dashBoard/analysis'));
+const NotFount = loader(()=>import('../View/errorPage/NotFound'));
+const Forbidden = loader(()=>{import('../View/errorPage/Forbidden.js')});
+const ServerError = loader(()=>{import('../View/errorPage/ServerError.js')});
 
 class RouterLink extends Component{
     render(){
@@ -28,6 +30,8 @@ class RouterLink extends Component{
                                     <Route path='/home' component={Home}/>
                                     <Route path='/doc' component={Doc}/>
                                     <Route path='/table' component={Table}/>
+                                    <Route path='/403' component={Forbidden}/>
+                                    <Route path='/500' component={ServerError}/>
                                     <Redirect to='/404'/>
                                 </Switch>
                             </Container>

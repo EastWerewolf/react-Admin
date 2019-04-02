@@ -17,4 +17,4 @@ class WorkSpace extends Component{
         )
     }
 }
-
+export default WorkSpace

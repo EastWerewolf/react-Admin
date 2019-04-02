@@ -3,7 +3,7 @@ export const MenuData = [
         {
             key:'sub1',
             icon:'dashboard',
-            name:'Dashboard',
+            name:'dashBoard',
             subMenu:[
                 {
                     id:'1',
@@ -17,22 +17,26 @@ export const MenuData = [
                     id:'3',
                     name:'工作台',
                     linkTo:'/doc'
-                },{
-                    id:'4',
-                    name:'options4',
-                    linkTo:'/home'
                 }
             ]
         },
         {
             key:'sub2',
             icon:'laptop',
-            name:'subNav2',
+            name:'异常页',
             subMenu:[
                 {
                     id:'5',
-                    name:'options5',
+                    name:'403',
+                    linkTo:'/403'
+                },{
+                    id:'6',
+                    name:'404',
                     linkTo:'/404'
+                },{
+                    id:'7',
+                    name:'500',
+                    linkTo:'/500'
                 }
             ]
         },
