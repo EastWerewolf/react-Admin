@@ -6,8 +6,8 @@ class NotFount extends Component{
         return(
             <div className='NotFount'>
                 <div className='center'>
-                    <h1>404 Error</h1>
-                    <p>Sorry, that page doesn't exist. <Link to='/'>Go to Home Page.</Link></p>
+                    <h1><img src={require('../../Assets/img/404.png')} alt="403" width={300}/></h1>
+                    <p>Sorry, that page seems doesn't exist. <Link to='/'>Go to Home Page.</Link></p>
                 </div>
             </div>
         )

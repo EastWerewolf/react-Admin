@@ -12,8 +12,8 @@ const Home = loader(()=> import('../View/home'));
 const Table = loader(()=>import('../View/table'));
 const DashBoard = loader(()=>import('../View/dashBoard/analysis'));
 const NotFount = loader(()=>import('../View/errorPage/NotFound'));
-const Forbidden = loader(()=>{import('../View/errorPage/Forbidden.js')});
-const ServerError = loader(()=>{import('../View/errorPage/ServerError.js')});
+const Forbidden = loader(()=>import('../View/errorPage/Forbidden'));
+const ServerError = loader(()=>import('../View/errorPage/ServerError'));
 
 class RouterLink extends Component{
     render(){
