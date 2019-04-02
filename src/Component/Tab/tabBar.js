@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Tabs } from 'antd';
 import {observer,inject} from 'mobx-react'
+import router from './tabData'
+console.log(router)
 const TabPane = Tabs.TabPane;
 const routerWithName = [{
     path:'/',title:'看板',
@@ -17,8 +19,7 @@ const routerWithName = [{
 class TabBar extends Component {
     constructor(props) {
         super(props);
-        this.newTabIndex = 0;
-        const panes = [{title:'看板',path:'/',key:'1',closable: false}];
+        const panes = [{title:'分析页',path:'/',key:'1',closable: false}];
         this.state = {
             activeKey: panes[0].key,
             panes,
@@ -27,19 +28,22 @@ class TabBar extends Component {
     componentWillMount(){
 
     }
-    componentWillReceiveProps(){
+    componentWillReceiveProps(nextProps){
         const receivePath = this.props.TestA.path;
         const panesArray = this.state.panes.map(i=>i.path);
-        const pathArray = routerWithName.map(i=>i.path);
-        if (pathArray.indexOf(receivePath)>-1&&panesArray.indexOf(receivePath)===-1&&receivePath){
-            let routerInfo = null;
-            routerWithName.forEach(i=>{if(i.path===receivePath){routerInfo = i}});
-            routerInfo.key =String(new Date().getTime());
+        if (router[receivePath]&&panesArray.indexOf(receivePath)===-1&&receivePath){
+            //新增tab
+            let routerInfo = {
+                path:receivePath,
+                title:router[receivePath],
+                key:String(new Date().getTime())
+            };
             const panes = this.state.panes;
             const activeKey = routerInfo.key;
             panes.push(routerInfo);
             this.setState({panes,activeKey});
-        }else if(pathArray.indexOf(receivePath)>-1&&panesArray.indexOf(receivePath)>-1&&receivePath){
+        }else if(router[receivePath]&&panesArray.indexOf(receivePath)>-1&&receivePath){
+            //切换tab
             this.state.panes.forEach(i=>{
                 if(i.path===receivePath){
                     this.setState({activeKey:i.key})
@@ -58,13 +62,6 @@ class TabBar extends Component {
 
     onEdit = (targetKey, action) => {
         this[action](targetKey);
-    }
-
-    add = () => {
-        const panes = this.state.panes;
-        const activeKey = `newTab${this.newTabIndex++}`;
-        panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
-        this.setState({ panes, activeKey });
     }
 
     remove = (targetKey) => {

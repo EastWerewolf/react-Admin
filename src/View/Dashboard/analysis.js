@@ -76,6 +76,8 @@ function getRandomData() {
 }
 const randomData = getRandomData();
 let timer=null;
+
+
 @axios('get','post')
 class DashBoard extends Component{
     constructor(){

@@ -26,7 +26,6 @@ class Home extends Component{
     render(){
         return(
             <div onClick={()=>{this.test()}}>
-                首頁{this.props.TestA.test}
                 <Button type='primary' onClick={(e)=>Home.Success(e)}>Success</Button>
             </div>
         )

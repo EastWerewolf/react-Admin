@@ -31,6 +31,7 @@ class Container extends Component{
     }
     //这里可以接收到路由的变化 全局路由拦截可以在这里写
     componentWillUpdate(nextProps){
+        console.log(nextProps,1111)
         this.props.TestA.changePath(nextProps.location.pathname)
     }
     checkOut(path){

@@ -24,7 +24,7 @@ const cookie={
         return cookie
 
     }
-}
+};
 
 /**
  * 对象深度复制
@@ -51,6 +51,26 @@ function deepCopy(obj,uniqueType){
         }
     }
     return newObj;
+}
+
+/**
+ * 拍平数组
+ * @param array
+ * @returns {Array}
+ */
+function flat(array){
+    let flatArr = [];
+    (function getFlat(childArr){
+        let arr = childArr?childArr:array;
+        arr.forEach(i=>{
+            if(typeof(i)==='object'&&typeof i.length === 'number'){
+                getFlat(i)
+            }else{
+                flatArr.push(i)
+            }
+        })
+    }());
+    return flatArr
 }
 /**
  * @desc 函数防抖
@@ -82,8 +102,8 @@ function debounce(func,wait,immediate) {
 }
 /**
  * @desc 函数节流
- * @param {*} func 
- * @param {*} wait 
+ * @param {*} func
+ * @param {*} wait
  */
 function throttle(func, wait) {
     let timeout;
@@ -99,4 +119,4 @@ function throttle(func, wait) {
 
     }
 }
-export {cookie,deepCopy,debounce,throttle}
+export {cookie,deepCopy,debounce,throttle,flat}
