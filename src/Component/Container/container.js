@@ -13,7 +13,8 @@ class Container extends Component{
     constructor(){
         super();
         this.state = {
-            SelectedKeys:['1']
+            SelectedKeys:['1'],
+            classList:'container upBig'
         }
     }
     //这里可以判断登录状态,控制页面跳转
@@ -27,13 +28,23 @@ class Container extends Component{
     }
     componentDidMount(){
         let SelectedKeys = [String(this.props.TestA.MenuIndex+1)];
-        this.setState({SelectedKeys})
+        this.setState({SelectedKeys});
+        setTimeout(()=>{
+            // this.setState({classList:'container'})
+        },1000)
     }
     //这里可以接收到路由的变化 全局路由拦截可以在这里写
     componentWillUpdate(nextProps){
-        console.log(nextProps,1111)
         this.props.TestA.changePath(nextProps.location.pathname)
     }
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(this.state.classList==='container upBig'){
+            this.setState({classList:'container getBig'})
+        }else{
+            this.setState({classList:'container upBig'})
+        }
+    }
+
     checkOut(path){
         path.key==='/login'&&sessionStorage.clear();
         this.props.history.push(path.key)
@@ -86,7 +97,7 @@ class Container extends Component{
                     <MenuList history={this.props.history} location={this.props.location} match={this.props.match}/>
                     <Content style={{ margin: '0 16px' }}>
                         <TabBar history={this.props.history} location={this.props.location} match={this.props.match}/>
-                        <div className='container'>{this.props.children}</div>
+                        <div className={this.state.classList}>{this.props.children}</div>
                         <Footer/>
                     </Content>
                 </Layout>

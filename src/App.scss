@@ -23,6 +23,40 @@ html, body, #root,.App{
   font-family: sans-serif;
   user-select: none;
   background-image: url('./Assets/img/back_react.jpg');
+  .upBig{
+    animation: .3s upBig forwards linear;
+  }
+  .getBig{
+    animation: .3s getBig forwards linear;
+  }
+  @keyframes getBig {
+    0%{
+      opacity: 0;
+      transform: scale(0,0);
+    }
+    50%{
+      opacity: 0.5;
+      transform: scale(0.5,0.5);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
+  @keyframes upBig {
+    0%{
+      opacity: 0;
+      transform: scale(0,0);
+    }
+    50%{
+      opacity: 0.5;
+      transform: scale(0.5,0.5);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
   .ant-layout{
     height: calc(100%);
     background-color: transparent;
