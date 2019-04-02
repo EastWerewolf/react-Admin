@@ -2,17 +2,8 @@ import React, {Component} from 'react'
 import { Tabs } from 'antd';
 import {observer,inject} from 'mobx-react'
 import router from './tabData'
-console.log(router)
+
 const TabPane = Tabs.TabPane;
-const routerWithName = [{
-    path:'/',title:'看板',
-},{
-    path:'/doc',title:'文档'
-},{
-    path:'/home',title:'fake首页'
-},{
-    path:'/table',title:'表格'
-}]
 
 @inject('TestA')
 @observer
