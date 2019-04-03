@@ -36,6 +36,9 @@ class MenuList extends Component{
     componentWillReceiveProps(){
 
     }
+    replace(url){
+        this.props.history.replace(url)
+    }
     render(){
         return(
             <Sider
@@ -54,7 +57,7 @@ class MenuList extends Component{
                     {MenuData[this.props.TestA.MenuIndex].map(i=>{
                         return(<SubMenu key={i.key} title={<span><Icon type={i.icon} /><span>{i.name}</span></span>}>
                         {i.subMenu.map(j=>{
-                            return(<Menu.Item key={j.id}><Link to={j.linkTo}>{j.name}</Link></Menu.Item>)
+                            return(<Menu.Item key={j.id}><a onClick={()=>{this.replace(j.linkTo)}}>{j.name}</a></Menu.Item>)
                         })}
                         </SubMenu>)
                     })}

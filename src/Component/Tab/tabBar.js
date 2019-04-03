@@ -46,18 +46,16 @@ class TabBar extends Component {
         this.setState({ activeKey });
         this.state.panes.forEach(i=>{
             if(i.key===activeKey){
-                this.props.history.push(i.path)
+                this.props.history.replace(i.path)
             }
         })
     }
-
     onEdit = (targetKey, action) => {
         this[action](targetKey);
     }
-
     remove = (targetKey) => {
         let activeKey = this.state.activeKey;
-        let lastIndex;
+        let lastIndex=0;
         this.state.panes.forEach((pane, i) => {
             if (pane.key === targetKey) {
                 lastIndex = i - 1;
@@ -74,7 +72,6 @@ class TabBar extends Component {
         }
         this.setState({ panes, activeKey });
     }
-
     render() {
         return (
             <Tabs

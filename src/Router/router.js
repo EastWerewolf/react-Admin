@@ -4,7 +4,7 @@ import { Switch, BrowserRouter as Router, Route, Redirect} from 'react-router-do
 import loader from '../Config/asyncLoader'
 import App from '../App'
 import Container from '../Component/Container/container'
-
+import routerName from '../Component/Tab/tabData'
 
 const LoginForm = loader(()=>import('../View/login'));
 const Doc = loader(()=>import('../View/doc'));
@@ -23,19 +23,21 @@ class RouterLink extends Component{
                     <Switch>
                         <Route path='/login' component={LoginForm}/>
                         <Route path='/404' component={NotFount}/>
-                        <Route path='/' render={(history,location,match)=>(
-                            <Container {...history} {...location} {...match}>
-                                <Switch>
-                                    <Route exact path='/' component={DashBoard}/>
-                                    <Route path='/home' component={Home}/>
-                                    <Route path='/doc' component={Doc}/>
-                                    <Route path='/table' component={Table}/>
-                                    <Route path='/403' component={Forbidden}/>
-                                    <Route path='/500' component={ServerError}/>
-                                    <Redirect to='/404'/>
-                                </Switch>
-                            </Container>
-                        )}/>
+                        <Route path='/' render={(history,location,match)=>{
+                            document.title = routerName[history.location.pathname]?routerName[history.location.pathname]+'-DMS Admin':'DMS Admin';
+                            return(
+                                <Container {...history} {...location} {...match}>
+                                    <Switch>
+                                        <Route exact path='/' component={DashBoard}/>
+                                        <Route path='/home' component={Home}/>
+                                        <Route path='/doc' component={Doc}/>
+                                        <Route path='/table' component={Table}/>
+                                        <Route path='/403' component={Forbidden}/>
+                                        <Route path='/500' component={ServerError}/>
+                                        <Redirect to='/404'/>
+                                    </Switch>
+                                </Container>)
+                        }}/>
                     </Switch>
                 </App>
             </Router>
