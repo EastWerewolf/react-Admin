@@ -21,8 +21,14 @@ class RouterLink extends Component{
             <Router>
                 <App>
                     <Switch>
-                        <Route path='/login' component={LoginForm}/>
-                        <Route path='/404' component={NotFount}/>
+                        <Route path='/login' render={()=>{
+                            document.title ='DMS Admin';
+                            return <LoginForm/>
+                        }}/>
+                        <Route path='/404' render={()=>{
+                            document.title ='ops,页面不见了';
+                            return <NotFount/>
+                        }}/>
                         <Route path='/' render={(history,location,match)=>{
                             document.title = routerName[history.location.pathname]?routerName[history.location.pathname]+'-DMS Admin':'DMS Admin';
                             return(
