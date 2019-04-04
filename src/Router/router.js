@@ -6,14 +6,14 @@ import App from '../App'
 import Container from '../Component/Container/container'
 import routerName from '../Component/Tab/tabData'
 
-const LoginForm = loader(()=>import('../View/login'));
-const Doc = loader(()=>import('../View/doc'));
-const Home = loader(()=> import('../View/home'));
-const Table = loader(()=>import('../View/table'));
-const DashBoard = loader(()=>import('../View/dashBoard/analysis'));
-const NotFount = loader(()=>import('../View/errorPage/NotFound'));
-const Forbidden = loader(()=>import('../View/errorPage/Forbidden'));
-const ServerError = loader(()=>import('../View/errorPage/ServerError'));
+const LoginForm = loader(()=>import('../Pages/login/login'));
+const Doc = loader(()=>import('../Pages/doc'));
+const Home = loader(()=> import('../Pages/home'));
+const Table = loader(()=>import('../Pages/table'));
+const DashBoard = loader(()=>import('../Pages/dashBoard/analysis'));
+const NotFount = loader(()=>import('../Pages/errorPage/NotFound'));
+const Forbidden = loader(()=>import('../Pages/errorPage/Forbidden'));
+const ServerError = loader(()=>import('../Pages/errorPage/ServerError'));
 
 class RouterLink extends Component{
     render(){
