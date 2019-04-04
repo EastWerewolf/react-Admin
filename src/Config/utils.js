@@ -87,10 +87,10 @@ function debounce(func,wait,immediate) {
 
         if (timeout) clearTimeout(timeout);
         if (immediate) {
-            var callNow = !timeout;
+            const callNow = !timeout;
             timeout = setTimeout(() => {
                 timeout = null;
-            }, wait)
+            }, wait);
             if (callNow) func.apply(context, args)
         }
         else {
