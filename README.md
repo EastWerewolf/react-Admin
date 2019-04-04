@@ -17,11 +17,12 @@
 * 发布到生产服务器
   * `npm run pack_production`
 
-###框架
-* [React16.4.2](https://reactjs.org/)
-* [react-router-dom](https://react-guide.github.io/react-router-cn/docs/Glossary.html)
-* [mobx](https://cn.mobx.js.org/)
+###框架/工具
+* [Mobx](https://cn.mobx.js.org/)
 * [SASS](https://www.sass.hk/)
 * [Mock](http://mockjs.com/)
-* [and-design](https://ant.design/index-cn)
+* [Axios](https://www.kancloud.cn/yunye/axios/234845)
+* [React16.4.2](https://reactjs.org/)
+* [react-router-dom](https://react-guide.github.io/react-router-cn/docs/Glossary.html)
+* [ant-design](https://ant.design/index-cn)
 * [Webpack3.8.1](https://www.webpackjs.com/concepts/)
