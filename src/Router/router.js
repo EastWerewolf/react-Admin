@@ -21,13 +21,13 @@ class RouterLink extends Component{
             <Router>
                 <App>
                     <Switch>
-                        <Route path='/login' render={()=>{
+                        <Route path='/login' render={(history,location,match)=>{
                             document.title ='DMS Admin';
-                            return <LoginForm/>
+                            return <LoginForm {...history} {...location} {...match}/>
                         }}/>
-                        <Route path='/404' render={()=>{
+                        <Route path='/404' render={(history,location,match)=>{
                             document.title ='ops,页面不见了';
-                            return <NotFount/>
+                            return <NotFount {...history} {...location} {...match}/>
                         }}/>
                         <Route path='/' render={(history,location,match)=>{
                             document.title = routerName[history.location.pathname]?routerName[history.location.pathname]+'-DMS Admin':'DMS Admin';

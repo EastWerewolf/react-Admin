@@ -14,6 +14,7 @@ class Login extends Component {
                 if (values.userName === 'admin' && values.password === '123456') {
                     sessionStorage.setItem('login', 'Admin');
                     values.remember && cookie.set('userName', values.userName, 2).set('password', values.password, 2);
+                    console.log(this.props)
                     this.props.history.push('/')
                 } else {
                     Msg.error('用户名或密码错误')
