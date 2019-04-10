@@ -1,9 +1,7 @@
 import React,{Component} from'react';
-import { Card, Col, Row,Calendar,Carousel,Tooltip,Icon,Button} from 'antd';
+import { Card, Col, Row} from 'antd';
 import {Map,Marker} from 'react-amap'
-import {Crosshair,
-    MarkSeriesCanvas,
-    Hint,
+import {
     AreaSeries,
     FlexibleWidthXYPlot,
     MarkSeries,
