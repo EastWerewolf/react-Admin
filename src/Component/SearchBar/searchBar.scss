@@ -1,0 +1,66 @@
+@mixin FakeTransparent{
+  background: url("../../Assets/img/bg_react_blur.jpg") fixed;
+  transition: none;
+}
+@mixin realTransParent{
+  background: url("../../Assets/img/back_react.jpg") fixed;
+  transition: none;
+}
+.xq-searchBar{
+  width: 100%;
+  min-height: 100px;
+  margin: 10px 0;
+  padding-left: 10px;
+  border: 1px solid #dfe6ec;
+  @include FakeTransparent;
+  >div:nth-child(1){
+    //float: left;
+    display: inline-block;
+    width: calc(100% - 100px);
+    height: 100%;
+  }
+  >div:nth-child(2){
+    //float: left;
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 90px;
+    >button{
+      display: inline-block;
+    }
+  }
+  .xq-select{
+    width: 200px;
+  }
+  .xq-margin{
+    margin: 20px 10px;
+  }
+  .xq-input {
+    width: 200px;
+    margin: 0 8px 8px 0;
+    @include FakeTransparent
+  }
+  .ant-input{
+    @include FakeTransparent
+  }
+  .ant-calendar-picker-input,.ant-select-selection--single,.ant-calendar-panel,.ant-calendar-range{
+    @include FakeTransparent;
+  }
+  .ant-select-selection{
+    color: white;
+  }
+  input{
+    color: white;
+  }
+}
+.ant-calendar-range,.ant-calendar,.ant-calendar-input,.ant-select-dropdown{
+  @include FakeTransparent;
+}
+.ant-calendar-panel{
+  .ant-calendar-date-input-wrap{
+    input{
+      @include FakeTransparent
+    }
+  }
+}

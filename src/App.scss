@@ -228,6 +228,17 @@ html, body, #root,.App{
   .dashboard>div{
     margin: 10px 0;
   }
+  //select 下拉菜单选中
+  .ant-select-dropdown-menu-item:hover{
+    background-color: transparent;
+    color: $fontColor;
+  }
+  .ant-select-dropdown-menu-item-selected{
+    background-color: $menuSelect;
+  }
+  .ant-select-dropdown-menu-item-selected:hover{
+    background-color: $menuSelect;
+  }
   //scrollbar
   ::-webkit-scrollbar {
     width: .5em;
