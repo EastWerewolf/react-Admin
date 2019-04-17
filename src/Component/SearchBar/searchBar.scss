@@ -53,6 +53,9 @@
   input{
     color: white;
   }
+  .ant-select-selection__placeholder{
+    display: block!important;
+  }
 }
 .ant-calendar-range,.ant-calendar,.ant-calendar-input,.ant-select-dropdown{
   @include FakeTransparent;

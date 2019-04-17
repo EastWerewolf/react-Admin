@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d14fcaef-e634-4705-8ac3-8ae5b600e125" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Component/Pagination/pagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Component/Pagination/pagination.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Container/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Container/container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Menu/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/SearchBar/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/SearchBar/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Tab/tabBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Tab/tabBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/testA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/ModuleA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/testB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/ModuleB.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,7 +30,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Component/SearchBar/searchBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
+            <state relative-caret-position="673">
               <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -142,6 +132,7 @@
       <find>newTabIndex</find>
       <find>onClick</find>
       <find>circle</find>
+      <find>TestA</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -350,7 +341,7 @@
       <workItem from="1555043118457" duration="3180000" />
       <workItem from="1555291575587" duration="654000" />
       <workItem from="1555321917241" duration="770000" />
-      <workItem from="1555487737232" duration="474000" />
+      <workItem from="1555487737232" duration="566000" />
     </task>
     <task id="LOCAL-00001" summary="扩展配置">
       <created>1551946356523</created>
@@ -499,14 +490,22 @@
       <option name="project" value="LOCAL" />
       <updated>1555322073020</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="新增pagination组件  局部更新">
+      <created>1555488250349</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1555488250349</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127598000" />
+    <option name="totallyTimeSpent" value="127690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="61" width="1920" height="977" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4959724" visible="true" weight="0.18378094" />
       <window_info id="Structure" order="1" sideWeight="0.5040276" side_tool="true" weight="0.18378094" />
@@ -548,7 +547,8 @@
     <MESSAGE value="优化结构 动态title" />
     <MESSAGE value="优化结构" />
     <MESSAGE value="新增searchBar" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增searchBar" />
+    <MESSAGE value="新增pagination组件  局部更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增pagination组件  局部更新" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/react-vis/es/utils/axis-utils.js">
@@ -962,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Component/SearchBar/searchBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
+        <state relative-caret-position="673">
           <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />

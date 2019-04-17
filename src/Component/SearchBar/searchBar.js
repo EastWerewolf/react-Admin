@@ -81,7 +81,7 @@ class SearchBar extends Component{
                                 className='xq-select xq-margin'
                                 value={this.state.params[item.name]}
                                 onChange={(e)=>{this.onChange(e,item.name)}}
-                                placeholder={item.placeholder}>
+                                placeholder={item.placeholder||'请选择'}>
                                 {item.options.map((i,d)=>{
                                     return(<Option value={i.id} key={d}>{i.name}</Option>)
                                 })}
