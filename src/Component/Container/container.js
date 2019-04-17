@@ -7,7 +7,7 @@ import TabBar from '../Tab/tabBar'
 import MenuList from '../Menu/menu'
 const { Header, Content,Footer } = Layout;
 
-@inject('TestA')
+@inject('ModuleA')
 @observer
 class Container extends Component{
     constructor(){
@@ -23,11 +23,11 @@ class Container extends Component{
         if(!login){
             this.props.history.push('/login');
         }else{
-            this.props.TestA.changePath(this.props.location.pathname)
+            this.props.ModuleA.changePath(this.props.location.pathname)
         }
     }
     componentDidMount(){
-        let SelectedKeys = [String(this.props.TestA.MenuIndex+1)];
+        let SelectedKeys = [String(this.props.ModuleA.MenuIndex+1)];
         this.setState({SelectedKeys});
         setTimeout(()=>{
             // this.setState({classList:'container'})
@@ -35,7 +35,7 @@ class Container extends Component{
     }
     //这里可以接收到路由的变化 全局路由拦截可以在这里写
     componentWillUpdate(nextProps){
-        this.props.TestA.changePath(nextProps.location.pathname)
+        this.props.ModuleA.changePath(nextProps.location.pathname)
     }
     componentWillReceiveProps(nextProps, nextContext) {
         if(this.state.classList==='container upBig'){
@@ -70,17 +70,17 @@ class Container extends Component{
                         <Icon
                             className="trigger"
                             style={{color:'#fff',fontSize:'20px'}}
-                            type={this.props.TestA.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={()=>this.props.TestA.isCollapse(this.props.TestA.collapsed)}
+                            type={this.props.ModuleA.collapsed ? 'menu-unfold' : 'menu-fold'}
+                            onClick={()=>this.props.ModuleA.isCollapse(this.props.ModuleA.collapsed)}
                         />
                     </div>
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={[String(this.props.TestA.MenuIndex+1)]}
-                        selectedKeys={[String(this.props.TestA.MenuIndex+1)]}
+                        defaultSelectedKeys={[String(this.props.ModuleA.MenuIndex+1)]}
+                        selectedKeys={[String(this.props.ModuleA.MenuIndex+1)]}
                         style={{ lineHeight: '64px' }}
-                        onClick={(path)=>{this.props.TestA.changeIndex(path.key-1)}}
+                        onClick={(path)=>{this.props.ModuleA.changeIndex(path.key-1)}}
                     >
                         <Menu.Item key="1">nav 1</Menu.Item>
                         <Menu.Item key="2">nav 2</Menu.Item>

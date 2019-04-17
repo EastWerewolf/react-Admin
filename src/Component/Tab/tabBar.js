@@ -5,7 +5,7 @@ import router from './tabData'
 
 const TabPane = Tabs.TabPane;
 
-@inject('TestA')
+@inject('ModuleA')
 @observer
 class TabBar extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class TabBar extends Component {
 
     }
     componentWillReceiveProps(nextProps){
-        const receivePath = this.props.TestA.path;
+        const receivePath = this.props.ModuleA.path;
         const panesArray = this.state.panes.map(i=>i.path);
         if (router[receivePath]&&panesArray.indexOf(receivePath)===-1&&receivePath){
             //新增tab

@@ -1,6 +1,6 @@
 import {observable, action, computed, configure} from 'mobx';
 configure({ enforceActions: 'observed' });
-class TestA {
+class ModuleA {
     @observable MenuIndex = 0;
     @observable collapsed = false;
     @observable path = null;
@@ -20,4 +20,4 @@ class TestA {
         return true
     }
 }
-export default TestA
+export default ModuleA

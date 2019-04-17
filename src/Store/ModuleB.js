@@ -1,6 +1,6 @@
 import {observable, action, computed, configure} from 'mobx';
 configure({ enforceActions: 'observed' });
-class TestB {
+class ModuleB {
     @observable todos = [
         {
             title: "todo标题",
@@ -25,4 +25,4 @@ class TestB {
         return this.todos.filter((todo) => todo.done)
     }
 }
-export default TestB
+export default ModuleB

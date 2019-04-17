@@ -7,7 +7,7 @@ import {MenuData} from './menuData'
 const { SubMenu } = Menu;
 const {Sider} = Layout;
 
-@inject('TestA')
+@inject('ModuleA')
 @observer
 class MenuList extends Component{
     constructor(){
@@ -27,7 +27,7 @@ class MenuList extends Component{
                         OpenKeys = [MenuData[i][j].key];
                         SelectedKeys = [MenuData[i][j].subMenu[k].id];
                         this.setState({OpenKeys, SelectedKeys});
-                        this.props.TestA.changeIndex(i)
+                        this.props.ModuleA.changeIndex(i)
                     }
                 }
             }
@@ -45,7 +45,7 @@ class MenuList extends Component{
                 width={200}
                 collapsible
                 trigger={null}
-                collapsed={this.props.TestA.collapsed}
+                collapsed={this.props.ModuleA.collapsed}
             >
                 <Menu
                     mode="inline"
@@ -54,7 +54,7 @@ class MenuList extends Component{
                     defaultOpenKeys={this.state.OpenKeys}
                     style={{ height: '100%', borderRight: 0 }}
                 >
-                    {MenuData[this.props.TestA.MenuIndex].map(i=>{
+                    {MenuData[this.props.ModuleA.MenuIndex].map(i=>{
                         return(<SubMenu key={i.key} title={<span><Icon type={i.icon} /><span>{i.name}</span></span>}>
                         {i.subMenu.map(j=>{
                             return(<Menu.Item key={j.id}><a onClick={()=>{this.replace(j.linkTo)}}>{j.name}</a></Menu.Item>)

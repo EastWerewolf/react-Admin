@@ -1,10 +1,10 @@
 //在这里汇总所有的状态
-import TestA from './testA'
-import TestB from './testB'
+import ModuleA from './ModuleA'
+import ModuleB from './ModuleB'
 class Store {
     constructor(){
-        this.TestA = new TestA();
-        this.TestB = new TestB();
+        this.ModuleA = new ModuleA();
+        this.ModuleB = new ModuleB();
     }
 }
 export default new Store()

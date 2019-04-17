@@ -1,10 +1,14 @@
 import React,{Component} from 'react'
-import {DatePicker,Input,Select,Button} from 'antd'
+import {DatePicker,Input,Select,Button,Table} from 'antd'
+import {observer,inject} from 'mobx-react'
+import {PageTurn} from '../Pagination/pagination'
 import './searchBar.scss'
 
 
 const { RangePicker} = DatePicker;
 const Option = Select.Option;
+@inject('ModuleA')
+@observer
 class SearchBar extends Component{
     constructor(props){
         super(props)
@@ -17,18 +21,13 @@ class SearchBar extends Component{
         this.props.options.forEach(i=>{
             params[i.name] =null
         });
-        this.setState({params},()=>{
-            console.log(this.state,params)
-        });
+        this.setState({params});
 
     }
     onChange(value,state){
-        console.log(arguments)
         const params = this.state.params;
         params[state] = value;
-        this.setState({params},()=>{
-            console.log(this.state)
-        })
+        this.setState({params})
     }
     submit(){
         const params = this.state.params;
@@ -98,3 +97,4 @@ class SearchBar extends Component{
     }
 }
 export default SearchBar
+export {SearchBar,Table,PageTurn}

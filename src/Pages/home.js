@@ -3,7 +3,7 @@ import {message as Msg,Button } from 'antd'
 import {inject,observer} from 'mobx-react'
 import configs from '../Config/configs'
 
-@inject('TestA')
+@inject('ModuleA')
 @observer
 class Home extends Component{
     componentDidMount(){
@@ -15,7 +15,7 @@ class Home extends Component{
     }
     test(){
         let num = Math.round(Math.random()*1000);
-        this.props.TestA.changeTest('测试'+num)
+        this.props.ModuleA.changeTest('测试'+num)
     };
     //静态方法指的是没有组件实例也可直接调用
     //但是静态方法不能读取this

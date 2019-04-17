@@ -1,0 +1,20 @@
+.xq-pagination{
+  text-align: right;
+  margin-top: 10px;
+  .ant-pagination-total-text{
+    color: #209e91;
+  }
+  .ant-select-selection{
+    background: url("../../Assets/img/bg_react_blur.jpg") fixed;
+    transition: none;
+    color: #209e91;
+  }
+  .ant-pagination-options-quick-jumper{
+    color: #209e91;
+    >input{
+      background: url("../../Assets/img/bg_react_blur.jpg") fixed;
+      transition: none;
+      color: #209e91;
+    }
+  }
+}
