@@ -83,6 +83,7 @@ html, body, #root,.App{
     flex:1 1 auto;
     overflow-y: auto;
     overflow-x: hidden;
+    position: relative;
   }
   .ant-tabs{
     flex: 0 0 48px;
@@ -207,6 +208,14 @@ html, body, #root,.App{
         background-color: $menuSelect;
       }
     }
+  }
+  //表格 placeholder
+  .ant-table-placeholder{
+    @include FakeTransparent
+  }
+  //表格 selected
+  .ant-table-row-selected>td{
+    @include FakeTransparent
   }
   //a标签
   a{
