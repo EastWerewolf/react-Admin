@@ -1,0 +1,47 @@
+.xq-popBar{
+  min-height: 40px;
+  min-width: 50px;
+  border: 1px solid #dfe6ec;
+  background: url("../../Assets/img/bg_react_blur.jpg") fixed;
+  transition: none;
+  position: absolute;
+  margin-top: -35px;
+  visibility: hidden;
+  >button{
+    margin: 5px 10px;
+  }
+}
+.xq-popBar-show{
+  animation: .3s show forwards linear;
+}
+.xq-popBar-hide{
+  animation: .3s hide forwards linear
+}
+@keyframes show {
+  0%{
+    visibility: visible;
+    left: -500px;
+  }
+  50%{
+    visibility: visible;
+    left: -250px;
+  }
+  100%{
+    visibility: visible;
+    left: 0;
+  }
+}
+@keyframes hide {
+  0%{
+    left: 0;
+    visibility: visible;
+  }
+  50%{
+    left: -250px;
+    visibility: visible;
+  }
+  100%{
+    left: -500px;
+    visibility: hidden;
+  }
+}

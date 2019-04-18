@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d14fcaef-e634-4705-8ac3-8ae5b600e125" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d14fcaef-e634-4705-8ac3-8ae5b600e125" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -39,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6187">
-              <caret line="269" selection-start-line="269" selection-end-line="269" />
+            <state relative-caret-position="329">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -107,7 +105,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Component/SearchBar/searchBar.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="497">
@@ -179,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/Router/router.js" />
         <option value="$PROJECT_DIR$/src/Scss/login.scss" />
         <option value="$PROJECT_DIR$/src/Pages/dashBoard/analysis.js" />
-        <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/Component/Pagination/pagination.js" />
         <option value="$PROJECT_DIR$/src/Component/Pagination/pagination.scss" />
         <option value="$PROJECT_DIR$/src/Component/Menu/menu.js" />
@@ -189,6 +186,7 @@
         <option value="$PROJECT_DIR$/src/Store/store.js" />
         <option value="$PROJECT_DIR$/src/Component/SearchBar/searchBar.js" />
         <option value="$PROJECT_DIR$/src/Component/SearchBar/searchBar.scss" />
+        <option value="$PROJECT_DIR$/src/App.scss" />
       </list>
     </option>
   </component>
@@ -341,7 +339,7 @@
       <workItem from="1555291575587" duration="654000" />
       <workItem from="1555321917241" duration="770000" />
       <workItem from="1555487737232" duration="566000" />
-      <workItem from="1555488645502" duration="949000" />
+      <workItem from="1555488645502" duration="2586000" />
     </task>
     <task id="LOCAL-00001" summary="扩展配置">
       <created>1551946356523</created>
@@ -511,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555492748025</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="placeholder不显示问题更新">
+      <created>1555493386206</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1555493386206</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128639000" />
+    <option name="totallyTimeSpent" value="130276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -914,13 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6187">
-          <caret line="269" selection-start-line="269" selection-end-line="269" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Component/Pagination/pagination.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -982,6 +980,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="59" column="31" lean-forward="true" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
         </state>
       </provider>
     </entry>
