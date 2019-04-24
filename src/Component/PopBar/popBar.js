@@ -5,22 +5,17 @@ class PopBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            className:'xq-popBar',
-            isFirst:true
+            className:'xq-popBar'
         }
     }
     componentWillReceiveProps(nextProps, nextContext) {
         let className = '';
-        if(!this.state.isFirst){
-            if(nextProps.show){
-                className = 'xq-popBar xq-popBar-show'
-            }else{
-                className = 'xq-popBar xq-popBar-hide'
-            }
-            this.setState({className})
+        if(nextProps.show){
+            className = 'xq-popBar xq-popBar-show'
         }else{
-            this.setState({isFirst:false})
+            className = 'xq-popBar xq-popBar-hide'
         }
+        this.setState({className});
 
     }
     render(){
