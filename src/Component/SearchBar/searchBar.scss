@@ -44,10 +44,10 @@
     margin: 10px 10px;
     @include FakeTransparent
   }
-  .ant-input{
-    @include FakeTransparent
+  .ant-input, .ant-calendar-picker-input,.ant-select-selection--single{
+    @include realTransParent
   }
-  .ant-calendar-picker-input,.ant-select-selection--single,.ant-calendar-panel,.ant-calendar-range{
+  .ant-calendar-panel,.ant-calendar-range{
     @include FakeTransparent;
   }
   .ant-select-selection{
