@@ -81,8 +81,9 @@ html, body, #root,.App{
   //主体内容
   .container{
     flex:1 1 auto;
-    overflow-y: auto;
+    overflow-y: auto ;
     overflow-x: hidden;
+    //overflow: visible;
     position: relative;
   }
   .ant-tabs{
@@ -171,7 +172,8 @@ html, body, #root,.App{
   .ant-dropdown-menu-item{
     text-align: center;
   }
-  .ant-checkbox-checked .ant-checkbox-inner,.ant-btn-primary{
+  //btn checkBox
+  .ant-checkbox-checked .ant-checkbox-inner,.ant-btn-primary,.ant-btn-primary:hover, .ant-btn-primary:focus{
     background-color: $afterColor;
     border-color: $afterColor;
   }
@@ -211,7 +213,12 @@ html, body, #root,.App{
   }
   //表格 placeholder
   .ant-table-placeholder{
-    @include FakeTransparent
+    height: 540px;
+    line-height: 540px;
+    @include FakeTransparent;
+    >div{
+      display: inline-block;
+    }
   }
   //表格 selected
   .ant-table-row-selected>td{

@@ -1,0 +1,22 @@
+@mixin FakeTransparent{
+  background: url("../../Assets/img/bg_react_blur.jpg") fixed;
+  transition: none;
+}
+@mixin realTransParent{
+  background: url("../../Assets/img/back_react.jpg") fixed;
+  transition: none;
+}
+.ant-modal-content{
+  @include FakeTransparent;
+  .ant-modal-header{
+    @include FakeTransparent;
+    border-bottom-color: transparent;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+  .ant-modal-body{
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+  .ant-modal-footer{
+    border-top-color: transparent;
+  }
+}
