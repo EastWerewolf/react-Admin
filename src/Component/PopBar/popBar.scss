@@ -3,45 +3,17 @@
   min-width: 50px;
   border: 1px solid #dfe6ec;
   background: url("../../Assets/img/bg_react_blur.jpg") fixed;
-  transition: none;
   position: absolute;
+  left: -500px;
   margin-top: -35px;
-  visibility: hidden;
+  transition:.3s linear ;
   >button{
     margin: 5px 10px;
   }
 }
 .xq-popBar-show{
-  animation: .3s show forwards linear;
+  left: 0;
 }
 .xq-popBar-hide{
-  animation: .3s hide forwards linear
-}
-@keyframes show {
-  0%{
-    visibility: visible;
-    left: -500px;
-  }
-  50%{
-    visibility: visible;
-    left: -250px;
-  }
-  100%{
-    visibility: visible;
-    left: 0;
-  }
-}
-@keyframes hide {
-  0%{
-    left: 0;
-    visibility: visible;
-  }
-  50%{
-    left: -250px;
-    visibility: visible;
-  }
-  100%{
-    left: -500px;
-    visibility: hidden;
-  }
+  left: -500px;
 }
