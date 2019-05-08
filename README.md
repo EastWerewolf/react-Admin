@@ -17,7 +17,7 @@
 * 发布到生产服务器
   * `npm run pack_production`
 
-###框架/工具
+### 框架/工具
 * [Mobx](https://cn.mobx.js.org/)
 * [SASS](https://www.sass.hk/)
 * [Mock](http://mockjs.com/)
