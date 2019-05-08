@@ -104,7 +104,6 @@ html, body, #root,.App{
   }
   .ant-layout-sider{
     background-color: transparent;
-
   }
   .ant-layout-footer{
     background-color: transparent;
@@ -205,6 +204,10 @@ html, body, #root,.App{
       @include FakeTransparent;
       .ant-table-thead > tr > th{
         @include FakeTransparent;
+        text-align: center;
+      }
+      .ant-table-tbody > tr > td{
+        text-align: center;
       }
       .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td{
         background-color: $menuSelect;
@@ -274,12 +277,15 @@ html, body, #root,.App{
     width: 120px;
     display: block;
     float: right;
-    color: #fff;
     text-align: center;
     text-decoration: none;
   }
   .admin:hover{
     background-color: $menuSelect;
+  }
+  textarea::placeholder{
+    color: #bfbfbf;
+    text-indent: 8px;
   }
 }
 

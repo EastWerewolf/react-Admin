@@ -1,6 +1,12 @@
 import React,{Component} from 'react'
 import './popBar.scss'
 
+/**
+ * props{
+ *      show:Boolean,
+ *      children:Element
+ * }
+ */
 class PopBar extends Component{
     constructor(props){
         super(props);
